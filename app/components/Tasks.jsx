@@ -115,7 +115,7 @@ const Tasks = ({ setTasks, tasks }) => {
       b.important &&
       a.important
     ) {
-      return a.id - b.id;
+      return b.id - a.id;
     }
 
     // Sort by ID for other cases
