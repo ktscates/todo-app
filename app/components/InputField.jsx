@@ -11,27 +11,23 @@ const InputField = () => {
     new Date().toLocaleDateString("CA")
   );
 
-  // Function to save tasks to localStorage
-  const saveTasksToLocalStorage = (tasks) => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  };
-
-  // Function to handle adding a new task
-  const addTask = async (newTask) => {
-    try {
-      const createdTask = await API().createTodo({
-        task: newTask,
-        status: "active",
-        important: false,
-        createdAt: currentDate,
-      });
-
-      // Update the tasks with the new task and save to localStorage
-      const updatedTasks = [createdTask, ...tasks];
-      setTasks(updatedTasks);
-      saveTasksToLocalStorage(updatedTasks);
-    } catch (error) {
-      console.error("Error creating task:", error);
+  const addTask = async () => {
+    console.log("adding tasks");
+    if (taskInput.trim() !== "") {
+      try {
+        await API().createTodo({
+          task: taskInput,
+          status: "active",
+          important: false,
+          createdAt: currentDate,
+        });
+        // After adding a task, fetch the updated task list
+        const updatedTasks = await API().getTodos();
+        setTasks(updatedTasks);
+        setTaskInput("");
+      } catch (error) {
+        console.error("Error adding task:", error);
+      }
     }
   };
 

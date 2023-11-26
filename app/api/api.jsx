@@ -34,11 +34,16 @@ const API = () => {
     return handleRequest(axios.delete(`${URL}/todos/${id}`));
   };
 
+  const clearAllTodos = async (data) => {
+    return handleRequest(axios.delete(`${URL}/todos`));
+  };
+
   return {
     getTodos,
     createTodo,
     updateTodo,
     deleteTodo,
+    clearAllTodos,
   };
 };
 
