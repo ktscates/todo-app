@@ -104,9 +104,9 @@ const Tasks = ({ setTasks, tasks }) => {
     if (a.status === "completed" && b.status !== "completed") return 1;
     if (a.status !== "completed" && b.status === "completed") return -1;
 
-    // Second, sort by importance
-    if (a.important && !b.important) return 1;
-    if (!a.important && b.important) return -1;
+    // Sort by importance
+    if (a.important && !b.important) return -1;
+    if (!a.important && b.important) return 1;
 
     // if both tasks are completed and important, sort by id
     if (
