@@ -24,6 +24,7 @@ module.exports = {
         actions: "#9495A5",
         actionsD: "#5B5E7E",
         blue: "#3A7CFD",
+        orange: "#FF5F15",
       },
     },
   },

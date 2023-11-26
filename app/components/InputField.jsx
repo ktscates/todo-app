@@ -6,21 +6,32 @@ import API from "../api/api";
 
 const InputField = () => {
   const [taskInput, setTaskInput] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [currentDate, setCurrentDate] = useState(
+    new Date().toLocaleDateString("CA")
+  );
 
-  const addTask = async () => {
-    console.log("adding tasks");
-    if (taskInput.trim() !== "") {
-      try {
-        await API().createTodo({
-          task: taskInput,
-          priority: "Medium", // You can set a default priority or fetch it from a dropdown
-          completed: false,
-        });
+  // Function to save tasks to localStorage
+  const saveTasksToLocalStorage = (tasks) => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
 
-        // After adding a task, you may want to update the task list
-      } catch (error) {
-        console.error("Error adding task:", error);
-      }
+  // Function to handle adding a new task
+  const addTask = async (newTask) => {
+    try {
+      const createdTask = await API().createTodo({
+        task: newTask,
+        status: "active",
+        important: false,
+        createdAt: currentDate,
+      });
+
+      // Update the tasks with the new task and save to localStorage
+      const updatedTasks = [createdTask, ...tasks];
+      setTasks(updatedTasks);
+      saveTasksToLocalStorage(updatedTasks);
+    } catch (error) {
+      console.error("Error creating task:", error);
     }
   };
 
@@ -48,6 +59,7 @@ const InputField = () => {
           </button>
         </div>
       </div>
+      <Tasks setTasks={setTasks} tasks={tasks} />
     </div>
   );
 };

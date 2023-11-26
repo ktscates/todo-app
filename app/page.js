@@ -50,7 +50,6 @@ export default function Home() {
       </div>
 
       <InputField />
-      <Tasks />
     </main>
   );
 }
