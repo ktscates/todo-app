@@ -112,8 +112,8 @@ const Tasks = ({ setTasks, tasks }) => {
     if (
       a.status === "completed" &&
       b.status === "completed" &&
-      a.important &&
-      b.important
+      b.important &&
+      a.important
     ) {
       return b.id - a.id;
     }
