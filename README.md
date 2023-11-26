@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Todo List Application
 
-## Getting Started
+## Features
 
-First, run the development server:
+## Adding Tasks
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Text Input Field
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Users can add tasks by typing them into a text input field.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Submit Button
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A 'Submit' button is available to add the task to the to-do list.
 
-## Learn More
+### Task Display
 
-To learn more about Next.js, take a look at the following resources:
+Each task is displayed as a list item in an unordered list, with new tasks appearing at the top.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deleting Tasks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Delete Button
 
-## Deploy on Vercel
+Next to each task, a 'Delete' button is provided.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Removal Mechanism
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Clicking the 'Delete' button removes the corresponding task from the list.
+
+## Prioritizing Tasks
+
+### Mark as Important
+
+Users can mark tasks as 'Important', either through a button or by clicking on the task itself.
+
+### Visual Distinction
+
+Important tasks are visually distinct, possibly highlighted with a different color.
+
+### Sorting
+
+Optionally, a feature to sort or move important tasks to the top of the list can be implemented.
+
+## Advanced Features
+
+### Task Editing
+
+Users have the option to edit the text of existing tasks.
+
+### Task Completion
+
+A feature allows users to mark tasks as completed, with completed tasks styled differently, such as with strikethrough text.
+
+### Categories or Tags
+
+Users can assign categories or tags to tasks, facilitating task filtering based on these categories.
+
+### Responsive Design
+
+The application is designed to be usable on various devices, including mobile phones and tablets.
+
+## Technologies Used
+
+- **NextJS:** A React framework for building user interfaces.
+- **TailwindCSS:** Used for styling the application.
+- **React Icons:** For Icons
+
+## Local Development
+
+Before running the application locally, you need to update the API origin in the backend to match your local environment. Follow these steps:
+
+1. Open the `api.js` file in the `src/api` directory.
+
+2. Locate the `BASE_URL` constant and update it to the URL where your local backend server is running. By default, it might be something like `http://localhost:8000`.
+
+   ```javascript
+   // src/api/api.js
+
+   const BASE_URL = "http://localhost:8000"; // Update this to your local backend URL
+   ```
