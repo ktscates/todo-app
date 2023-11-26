@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7a6f5267-378e-4ac9-ade7-d8470cc93ee9/deploy-status)](https://app.netlify.com/sites/thunderous-brigadeiros-4655df/deploys) ![Github actions](https://github.com/ktscates/todo-app/actions/workflows/node.js.yml/badge.svg)
+
 # Todo List Application
 
 ## Features
